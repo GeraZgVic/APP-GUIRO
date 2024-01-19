@@ -1,0 +1,4 @@
+COSTEO DE PRODUCTOS
+ARTICULO, PRECIO COSTO, PRECIO VENTA Y MARGEN.
+
+(precio de venta - precio costo) / (precio de venta) * 100 = MARGEN
