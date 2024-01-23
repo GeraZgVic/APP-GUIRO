@@ -14,9 +14,15 @@
             @csrf
            
             @if(session('mensaje'))
-                <div class="my-2 p-3 rounded-lg shadow-md text-center font-bold" style="background: linear-gradient(50deg, #ff6262, #296686);">
-                    <p class="text-white">{{session('mensaje')}}</p>
-                </div>  
+                
+                <div role="alert" class="mb-4">
+                    <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+                        Error
+                    </div>
+                    <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                        <p>{{session('mensaje')}}</p>
+                    </div>
+                  </div>
             @endif
             
             <div class="mb-5">
@@ -62,6 +68,9 @@
                     uppercase font-bold w-full p-3 text-white rounded-lg"
                 />
         </form>
+        <div class="mt-2">
+            <a href="{{route('registro')}}" class="text-gray-600 hover:text-gray-800 text-sm font-semibold">¿No tienes una cuenta? Create una</a>
+        </div>
     </div>
 </div>
 @endsection

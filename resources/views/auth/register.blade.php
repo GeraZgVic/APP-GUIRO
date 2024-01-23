@@ -85,6 +85,9 @@
                     uppercase font-bold w-full p-3 text-white rounded-lg"
                 />
         </form>
+        <div class="mt-2">
+            <a href="{{route('login')}}" class="text-gray-600 hover:text-gray-800 text-sm font-semibold">¿Ya tienes cuenta? Inicia Sesión</a>
+        </div>
     </div>
 </div>
 @endsection

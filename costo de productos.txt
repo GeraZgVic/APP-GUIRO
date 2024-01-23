@@ -2,3 +2,10 @@ COSTEO DE PRODUCTOS
 ARTICULO, PRECIO COSTO, PRECIO VENTA Y MARGEN.
 
 (precio de venta - precio costo) / (precio de venta) * 100 = MARGEN
+
+
+Pendiente: 
+1. Editar categoria reutlizando el mismo formulario o creando una ventana modal
+2. Costeo de productos
+3. Crear Vista para PUNTO DE VENTA (HOJA DIARIA)
+4. Funcionalidad para punto de venta
