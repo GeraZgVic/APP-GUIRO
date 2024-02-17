@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/functions.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/functions.js', 'resources/css/styles.css'])
     @livewireStyles
     <title>Guiro | @yield('titulo')</title>
     @stack('scripts')

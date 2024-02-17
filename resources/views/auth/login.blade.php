@@ -63,7 +63,7 @@
             
                 <input
                     type="submit"
-                    value="Crear Cuenta"
+                    value="Iniciar Sesión"
                     class="bg-cyan-600 hover:bg-cyan-700 transition-colors cursor-pointer
                     uppercase font-bold w-full p-3 text-white rounded-lg"
                 />

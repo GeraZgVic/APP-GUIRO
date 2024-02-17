@@ -5,7 +5,8 @@ ARTICULO, PRECIO COSTO, PRECIO VENTA Y MARGEN.
 
 
 Pendiente: 
-1. Editar categoria reutlizando el mismo formulario o creando una ventana modal
-2. Costeo de productos
-3. Crear Vista para PUNTO DE VENTA (HOJA DIARIA)
-4. Funcionalidad para punto de venta
+1. Editar categoria reutlizando el mismo formulario o creando una ventana modal - COMPLETADO
+2. Costeo de productos - Crear Migración y Relacion de CosteoProducto con Producto - COMPLETO
+3. TRABAJAR EN EL SELECT DE COSTEO DE PRODUCTOS - PENDING
+4. Crear Vista para PUNTO DE VENTA (HOJA DIARIA)
+5. Funcionalidad para punto de venta
