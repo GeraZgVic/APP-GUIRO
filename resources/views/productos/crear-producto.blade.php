@@ -13,7 +13,7 @@ route="productos.index"
 text="Regresar"
 />
 
-<h2 class="text-3xl font-semibold mb-6 text-center">Crear Producto</h2>
+<h2 class="text-3xl font-semibold mb-6 text-center font-mono">Crear Producto</h2>
 
 <div class="max-w-lg mx-auto bg-cyan-600 py-10 p-4 shadow-md rounded-md">
     <form action="{{ route('productos.store') }}" method="post" novalidate>

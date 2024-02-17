@@ -2,11 +2,28 @@
 
 namespace App\Http\Controllers;
 
+// use Barryvdh\DomPDF\PDF;
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
+use App\Exports\ProveedorExport;
+use Illuminate\Support\Facades\App;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProveedoresController extends Controller
 {
+    public function generarPDF()
+    {
+        $proveedores = Proveedor::paginate(10); // Obtener datos de tabla
+
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('proveedores.tabla-proveedor', ['proveedores' => $proveedores]);
+        return $pdf->stream('proveedores.pdf');
+    }
+
+    public function generarExcel()
+    {
+        return Excel::download(new ProveedorExport, 'proveedores.xlsx');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -14,10 +31,9 @@ class ProveedoresController extends Controller
     {
         // Nota: Si no usas inyeccion de dependencias, puedes instanciar el modelo
         // $proveedorModel = new Proveedor();
-
         // Obtener proveedores
-        $proveedores = $proveedorModel->orderBy('nombre', 'asc')->get();
-        
+        $proveedores = $proveedorModel->orderBy('nombre', 'asc')->paginate(10);
+
         return view('proveedores.proveedores', [
             'proveedores' => $proveedores
         ]);
@@ -47,12 +63,12 @@ class ProveedoresController extends Controller
 
         Proveedor::create([
             'nombre' => $request->nombre,
-            'email'=> $request->email,
+            'email' => $request->email,
             'telefono' => $request->telefono
         ]);
 
-         // Redireccionar
-         return redirect()->route('proveedores.index')->with('status', 'Creado Correctamente.');
+        // Redireccionar
+        return redirect()->route('proveedores.index')->with('status', 'Creado Correctamente.');
     }
 
     /**
@@ -76,8 +92,8 @@ class ProveedoresController extends Controller
      */
     public function update(Request $request, string $id)
     {
-         // Validar campos accediendo al $request
-         $request->validate([
+        // Validar campos accediendo al $request
+        $request->validate([
             'nombre' => 'required|max:50',
             'email' => 'nullable|email|max:50',
             'telefono' => 'nullable|digits:10'
@@ -88,13 +104,11 @@ class ProveedoresController extends Controller
 
         $proveedor->update([
             'nombre' => $request->nombre,
-            'email'=> $request->email,
+            'email' => $request->email,
             'telefono' => $request->telefono
         ]);
 
         return redirect()->route('proveedores.index')->with('status', 'Actualizado Correctamente.');
-
-
     }
 
     /**

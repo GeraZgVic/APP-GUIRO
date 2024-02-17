@@ -13,7 +13,7 @@ class ProductosController extends Controller
      */
     public function index(Producto $producto)
     {
-        $productos = $producto->with('categoria')->orderBy('nombre', 'asc')->get();
+        $productos = $producto->with('categoria')->orderBy('nombre', 'asc')->paginate(10);
 
         return view('productos.productos', compact('productos'));
     }
@@ -37,7 +37,7 @@ class ProductosController extends Controller
             'categoria' => 'required',
             'nombre' => 'required|max:40',
             'descripcion' => 'nullable',
-            'precio' => 'required',
+            'precio' => 'required|numeric',
             'cantidad' => 'required'
         ]);
 
@@ -83,7 +83,7 @@ class ProductosController extends Controller
             'categoria' => 'required',
             'nombre' => 'required|max:40',
             'descripcion' => 'nullable',
-            'precio' => 'required',
+            'precio' => 'required|numeric',
             'cantidad' => 'required'
         ]);
 

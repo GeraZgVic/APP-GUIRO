@@ -5,6 +5,12 @@
 @endsection
 
 @section('contenido')
+    {{-- Alertas --}}
+    <x-alerta />
+    <x-enlace-button 
+    route="productos.index"
+    text="Regresar"
+    />
     <div class="flex justify-end mb-2">
         <livewire:fecha-actual />
     </div>

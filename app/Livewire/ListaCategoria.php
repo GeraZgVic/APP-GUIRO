@@ -9,10 +9,16 @@ use Livewire\Attributes\On;
 class ListaCategoria extends Component
 {
 
-    #[On('eliminarProducto')]
+    // #[On('eliminarCategoria')]
     public function elimninarCategoria(Categoria $categoria)
     {
        $categoria->delete();
+    }
+
+    // Editar categoria
+    public function editarCategoria($categoriaId) 
+    {
+        $this->dispatch('editarCategoria', $categoriaId);
     }
 
     public function render(Categoria $categoriasModel)

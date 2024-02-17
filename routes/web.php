@@ -8,6 +8,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\CategoriasController;
+use App\Http\Controllers\CosteoController;
 use App\Http\Controllers\ProveedoresController;
 
 /*
@@ -37,6 +38,9 @@ Route::get('/ventas', [DailySheet::class, 'index'])->name('hoja.index');
 
 // Proveedores
 Route::get('/proveedores', [ProveedoresController::class, 'index'])->name('proveedores.index');
+Route::get('/generar-pdf',[ProveedoresController::class, 'generarPDF'])->name('export.pdf');
+Route::get('/generar-excel',[ProveedoresController::class, 'generarExcel'])->name('export.excel');
+
 Route::get('/proveedores/create', [ProveedoresController::class, 'create'])->name('proveedores.create');
 Route::post('/proveedores/store', [ProveedoresController::class, 'store'])->name('proveedores.store');
 
@@ -60,3 +64,10 @@ Route::delete('/productos/{producto}', [ProductosController::class, 'destroy'])-
 
 // Categorias
 Route::get('/categorias', [CategoriasController::class, 'index'])->name('categorias.index');
+
+// Costeo de Productos
+Route::get('/costeo-productos', [CosteoController::class, 'index'])->name('costeo.index');
+Route::get('/costeo-productos/inventario', [CosteoController::class, 'indexInventario'])->name('costeo.inventario');
+Route::get('/costeo-productos/inventario/{fecha}', [CosteoController::class, 'show'])->name('productos.por.fecha');
+// Eliminar costeoDeProductos
+Route::delete('/costeo-productos/inventario/{fecha}', [CosteoController::class, 'destroy'])->name('costeo.destroy');

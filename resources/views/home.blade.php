@@ -10,11 +10,15 @@
             <div class="md:flex items-center justify-between">
                 <h2 class="font-bold text-3xl md:text-4xl text-indigo-700 mb-2 md:mb-0">
                     ¡Hola, {{ auth()->user()->name }}! ¿Qué te gustaría hacer hoy?
-                </h2>
-                <livewire:fecha-actual />
+                </h2>                
             </div>
+            <div>
+                @livewire('clock')
+            </div>
+            
             {{-- CARDS --}}
             <x-card />
+           
         </div>
 
 @endsection
